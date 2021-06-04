@@ -1,0 +1,15 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  color: white;
+  min-height:50px;
+  padding: 0 20px;
+  align-items: center;
+}
+
+header>nav>* {
+  margin: 5px;
+  color: white;
+  text-decoration: none;
+}

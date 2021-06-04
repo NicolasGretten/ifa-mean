@@ -1,0 +1,9 @@
+<header>
+  <h1>Trello</h1>
+  <nav>
+    <a routerLink="/tasks">Tâches</a>
+    <a routerLink="/sign-in" *ngIf="!readLocalStorageUserId()">Connexion</a>
+    <a (click)="disconnect()">déconnexion</a>
+  </nav>
+</header>
+<router-outlet></router-outlet>

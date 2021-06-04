@@ -1,0 +1,135 @@
+<section class="lists-container">
+  <div class="list">
+    <h3 class="list-title">To Do</h3>
+    <ul class="list-items">
+      <ng-container *ngFor="let task of taskService.tasks">
+        <li *ngIf="task.state == 1" class="item">
+          <ng-container *ngIf="task.etatEdition == false || task.etatEdition === undefined ">
+            <div  class="top">
+              <p>{{ task.title }}</p>
+              <a (click)="deleteTask(task._id)" class="btn-delete">x</a>
+            </div>
+            <div class="center">
+              <p>{{ task.content }}</p>
+            </div>
+            <div class="bottom">
+              <a (click)="modifTask(task._id)" class="btn btn-modif">modif</a>
+              <a (click)="stateUp(task._id)" class="btn btn-next">></a>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="task.etatEdition == true">
+            <div  class="top">
+              <input
+                type="text"
+                [formControl]="title"
+                ngModel="{{task.title}}"
+              >
+              <a (click)="deleteTask(task._id)" class="btn-delete">x</a>
+            </div>
+            <div class="center">
+              <textarea
+                [formControl]="content"
+                ngModel="{{task.content}}"
+              ></textarea>
+            </div>
+            <button
+              id='submit1'
+              class="btn btn-modif"
+              type="submit"
+              (click)="submit(task._id, 1)">Enregistrer</button>
+          </ng-container>
+        </li>
+      </ng-container>
+    </ul>
+    <button class="add-card-btn btn" (click)="newCard(1)">Add a card</button>
+  </div>
+  <div class="list">
+    <h3 class="list-title">In Progress</h3>
+    <ul class="list-items">
+      <ng-container *ngFor="let task of taskService.tasks">
+        <li *ngIf="task.state == 2" class="item">
+          <ng-container *ngIf="task.etatEdition == false || task.etatEdition === undefined ">
+            <div  class="top">
+              <p>{{ task.title }}</p>
+              <a (click)="deleteTask(task._id)" class="btn-delete">x</a>
+            </div>
+            <div class="center">
+              <p>{{ task.content }}</p>
+            </div>
+            <div class="bottom">
+              <a (click)="stateDown(task._id)" class="btn btn-previous"><</a>
+              <a (click)="modifTask(task._id)" class="btn btn-modif">modif</a>
+              <a (click)="stateUp(task._id)" class="btn btn-next">></a>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="task.etatEdition == true">
+            <div  class="top">
+              <input
+                type="text"
+                [formControl]="title"
+                ngModel="{{task.title}}"
+              >
+              <a (click)="deleteTask(task._id)" class="btn-delete">x</a>
+            </div>
+            <div class="center">
+              <textarea
+                [formControl]="content"
+                ngModel="{{task.content}}"
+              ></textarea>
+            </div>
+            <button
+              id='submit2'
+              class="btn btn-modif"
+              type="submit"
+              (click)="submit(task._id,2)">Enregistrer</button>
+          </ng-container>
+        </li>
+      </ng-container>
+    </ul>
+    <button class="add-card-btn btn" (click)="newCard(2)">Add a card</button>
+  </div>
+  <div class="list">
+    <h3 class="list-title">Done</h3>
+    <ul class="list-items">
+      <ng-container *ngFor="let task of taskService.tasks">
+        <li *ngIf="task.state == 3" class="item">
+          <ng-container *ngIf="task.etatEdition == false || task.etatEdition === undefined ">
+            <div  class="top">
+              <p>{{ task.title }}</p>
+              <a (click)="deleteTask(task._id)" class="btn-delete">x</a>
+            </div>
+            <div class="center">
+              <p>{{ task.content }}</p>
+            </div>
+            <div class="bottom">
+              <a (click)="stateDown(task._id)" class="btn btn-previous"><</a>
+              <a (click)="modifTask(task._id)" class="btn btn-modif">modif</a>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="task.etatEdition == true">
+            <div  class="top">
+              <input
+                type="text"
+                [formControl]="title"
+                ngModel="{{task.title}}"
+              >
+              <a (click)="deleteTask(task._id)" class="btn-delete">x</a>
+            </div>
+            <div class="center">
+              <textarea
+                [formControl]="content"
+                ngModel="{{task.content}}"
+              ></textarea>
+            </div>
+            <button
+              id='submit'
+              class="btn btn-modif"
+              type="submit"
+              (click)="submit(task._id,3)">Enregistrer</button>
+          </ng-container>
+        </li>
+      </ng-container>
+    </ul>
+    <button class="add-card-btn btn" (click)="newCard(3)">Add a card</button>
+  </div>
+</section>

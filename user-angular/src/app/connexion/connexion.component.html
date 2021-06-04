@@ -1,0 +1,17 @@
+<div id="container">
+  <div  class="form">
+    <h1>Connexion</h1>
+    <input
+      placeholder="email"
+      type="text"
+      [formControl]="email">
+
+    <input type="password" placeholder="mdp" [formControl]="mdp" name="password" required>
+    <button
+      id='submit'
+    type="submit"
+    (click)="signIn()">Login</button>
+
+    <p style="text-align: end">Pas de compte ?  <a routerLink="/sign-up">S'inscrire</a></p>
+  </div>
+</div>

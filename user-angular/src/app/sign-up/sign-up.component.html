@@ -1,0 +1,14 @@
+<div class="container">
+  <form id="signup">
+    <div class="header">
+      <h3>Inscription</h3>
+    </div>
+    <div class="sep"></div>
+    <div class="inputs">
+      <input type="text" placeholder="name" [formControl]="name"  autofocus />
+      <input type="email" placeholder="email" [formControl]="email" autofocus />
+      <input type="password" placeholder="password" [formControl]="mdp"  />
+      <a id="submit" (click)="signUp()">Inscription</a>
+    </div>
+  </form>
+</div>
