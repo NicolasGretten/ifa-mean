@@ -1,42 +1,41 @@
 {
-  "name": "facturation-app",
+  "name": "kanban",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
+    "ng": "ng",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "frontend": "ng serve",
     "backend": "nodemon server.js",
-    "start": "npm-run-all --parallel backend serve"
+    "start": "npm-run-all --parallel backend frontend"
   },
   "dependencies": {
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
-    "bootstrap-vue": "^2.21.2",
-    "chart.js": "^2.9.4",
     "core-js": "^3.6.5",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
-    "mongoose": "^5.11.19",
+    "mongoose": "^5.12.12",
     "nodemon": "^2.0.7",
     "npm-run-all": "^4.1.5",
-    "vue": "^2.6.12",
-    "vue-axios": "^3.2.4",
-    "vue-chartjs": "^3.5.1",
-    "vue-router": "^3.5.1",
-    "vuex": "^3.6.2"
+    "rxjs": "~6.6.0",
+    "tslib": "^2.1.0",
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
-    "vue-template-compiler": "^2.6.11"
+    "jasmine-core": "~3.7.0",
+    "karma": "~6.3.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.0.3",
+    "karma-jasmine": "~4.0.0",
+    "karma-jasmine-html-reporter": "^1.5.0",
+    "typescript": "~4.2.3"
   },
   "eslintConfig": {
     "root": true,
@@ -44,7 +43,6 @@
       "node": true
     },
     "extends": [
-      "plugin:vue/essential",
       "eslint:recommended"
     ],
     "parserOptions": {

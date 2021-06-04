@@ -12,25 +12,23 @@ const db = process.env.MONGO_DB
 mongoose.connect(`mongodb+srv://${user}:${pass}@${cluster}/${db}?retryWrites=true&w=majority`,
   { useNewUrlParser: true,
     useUnifiedTopology: true })
-  .then(() => console.log('Connexion à MongoDB réussie !'))
-  .catch(() => console.log('Connexion à MongoDB échouée !'));
+  // .then(() => console.log('Connexion à MongoDB réussie !'))
+  // .catch(() => console.log('Connexion à MongoDB échouée !'));
 
 // const path = require('path')
 
-const billsRoutes = require('./routes/bills')
-const clientsRoutes = require('./routes/clients')
+const tasksRoutes = require('./routes/users')
 
 const app = express()
 
 app.use(express.json())
 
 app.use(cors({
-  origin: 'http://localhost:8080'
+  origin: '*'
 }))
 
 
 // creation des routes de l'app
-app.use('/bills', billsRoutes)
-app.use('/clients', clientsRoutes)
+app.use('/api/user', tasksRoutes)
 
 module.exports = app
